@@ -1,0 +1,18 @@
+[user]
+	name = Henrik Danielsson
+	email = h.danielsson@gmail.com
+[color]
+	diff = auto
+	ui = auto
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore-global
+[push]
+	default = simple
+[alias]
+	find = "!git log --color --source -S "
+	findd = "!git log --color --source -p -S "
+	oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
+	branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
+	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+	tree = log --oneline --graph --decorate --all --color
