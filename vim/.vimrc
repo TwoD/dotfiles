@@ -54,6 +54,7 @@ if dein#check_install()
 endif
 filetype plugin indent on
 
+let g:easytags_suppress_ctags_warning = 1 
 let g:easytags_async = 1
 set tags=./tags;,~/.vimtags
 let g:easytags_dynamic_files = 1
