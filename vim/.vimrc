@@ -40,6 +40,9 @@ call dein#add('evidens/vim-twig')
 call dein#add('joonty/vdebug')
 " Tern for Vim, use exuberant ctags with ternjs.
 call dein#add('ternjs/tern_for_vim')
+" Create ctags files.
+call dein#add('xolox/vim-misc')
+call dein#add('xolox/vim-easytags')
 " https://drupa.org/project/vimrc.
 if !empty(glob('~/.drush/vimrc/bundle'))
   call dein#local('~/.drush/vimrc/bundle')
@@ -51,6 +54,9 @@ if dein#check_install()
 endif
 filetype plugin indent on
 
+let g:easytags_async = 1
+set tags=./tags;,~/.vimtags
+let g:easytags_dynamic_files = 1
 set encoding=utf-8
 set nobackup
 set nowritebackup
