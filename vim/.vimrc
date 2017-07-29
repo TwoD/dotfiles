@@ -39,7 +39,7 @@ call dein#add('evidens/vim-twig')
 " Vdebug, Xdebug-compatible debugger.
 call dein#add('joonty/vdebug')
 " Tern for Vim, use exuberant ctags with ternjs.
-call dein#add('ternjs/tern_for_vim')
+call dein#add('ternjs/tern_for_vim', {'merged': 0})
 " Create ctags files.
 call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-easytags')
@@ -51,7 +51,12 @@ call dein#local('~/.vim/bundle')
 call dein#end()
 if dein#check_install()
   call dein#install()
+  if !empty(glob('~/.vim/bundle/repos/github.com/ternjs/tern_for_vim'))
+    :echom "Installing dependencies for Tern"
+    :echom system('cd ~/.vim/bundle/repos/github.com/ternjs/tern_for_vim && npm install')
+  endif
 endif
+
 filetype plugin indent on
 
 let g:easytags_suppress_ctags_warning = 1 
