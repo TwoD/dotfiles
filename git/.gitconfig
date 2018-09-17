@@ -16,3 +16,4 @@
 	branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
 	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
 	tree = log --oneline --graph --decorate --all --color
+	st = status
