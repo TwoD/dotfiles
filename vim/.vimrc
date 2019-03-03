@@ -43,6 +43,9 @@ call dein#add('ternjs/tern_for_vim', {'merged': 0})
 " Create ctags files.
 call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-easytags')
+
+call dein#add('ledger/vim-ledger')
+
 " https://drupa.org/project/vimrc.
 if !empty(glob('~/.drush/vimrc/bundle'))
   call dein#local('~/.drush/vimrc/bundle')
@@ -82,3 +85,15 @@ end
 if filereadable(expand('~/.vimrc_local'))
   source ~/.vimrc_local
 endif
+
+let g:ledger_decimal_sep = ','
+
+" For ledger
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+let g:ledger_fold_blanks = 1
+let g:ledger_align_at=80
+function LedgerSort()
+    :%! ledger -f - print --sort 'date, amount'
+    :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
