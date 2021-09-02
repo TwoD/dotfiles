@@ -43,6 +43,9 @@ call dein#add('ternjs/tern_for_vim', {'merged': 0})
 " Create ctags files.
 call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-easytags')
+
+call dein#add('ledger/vim-ledger')
+
 " https://drupa.org/project/vimrc.
 if !empty(glob('~/.drush/vimrc/bundle'))
   call dein#local('~/.drush/vimrc/bundle')
@@ -73,6 +76,7 @@ set noundofile
 set scrolloff=4
 set sidescrolloff=8
 set mouse=a
+set expandtab
 if has("mouse_sgr")
   set ttymouse=sgr
 else
@@ -85,3 +89,16 @@ endif
 
 " gp to select last paste https://vim.fandom.com/wiki/Selecting_your_pasted_text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" For ledger
+let g:ledger_decimal_sep = ','
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+let g:ledger_fold_blanks = 1
+let g:ledger_align_at=80
+function LedgerSort()
+    :%! ledger -f - print --sort 'date'
+    :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
+
+autocmd Filetype ledger setlocal shiftwidth=4 tabstop=4 noai
