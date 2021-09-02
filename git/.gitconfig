@@ -7,6 +7,8 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore-global
+	quotepath = off
+	autocrlf = input
 [push]
 	default = simple
 [alias]
@@ -17,3 +19,5 @@
 	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
 	tree = log --oneline --graph --decorate --all --color
 	st = status
+[pull]
+	ff = only
