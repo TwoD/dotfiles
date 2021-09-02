@@ -1,2 +1,4 @@
 --date-format %Y-%m-%d
 --decimal-comma
+--file bok.ledger
+--sort d
