@@ -94,7 +94,9 @@ au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 let g:ledger_fold_blanks = 1
 let g:ledger_align_at=80
 function LedgerSort()
-    :%! ledger -f - print --sort 'date, amount'
+    :%! ledger -f - print --sort 'date'
     :%LedgerAlign
 endfunction
 command LedgerSort call LedgerSort()
+
+autocmd Filetype ledger setlocal shiftwidth=4 tabstop=4 noai
