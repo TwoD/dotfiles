@@ -82,3 +82,6 @@ end
 if filereadable(expand('~/.vimrc_local'))
   source ~/.vimrc_local
 endif
+
+" gp to select last paste https://vim.fandom.com/wiki/Selecting_your_pasted_text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
