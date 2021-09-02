@@ -76,6 +76,7 @@ set noundofile
 set scrolloff=4
 set sidescrolloff=8
 set mouse=a
+set expandtab
 if has("mouse_sgr")
   set ttymouse=sgr
 else
