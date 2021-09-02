@@ -21,5 +21,5 @@
 	st = status
 [pull]
 	ff = only
- [include]
+[include]
         path = .gitconfig-local
