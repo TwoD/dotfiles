@@ -2,3 +2,4 @@
 sites/*
 *.sql
 *.sql.gz
+*.swp
