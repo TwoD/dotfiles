@@ -6,5 +6,10 @@ end
 set -gx BUILDDIR /tmp/makepkg
 set -gx EDITOR /usr/bin/vim
 set -gx PATH ~/bin /usr/local/bin $PATH
+
+function tmat
+  tmux attach || tmux new
+end
+
 # Allow local overrides.
 source ~/.config/fish/config.local.fish
